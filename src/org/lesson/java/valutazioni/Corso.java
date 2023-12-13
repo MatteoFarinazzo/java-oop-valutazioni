@@ -48,7 +48,7 @@ public class Corso {
 
     public double getPromossiPercentage (){
         getPromossiList();
-        double perPromossi =(promossi.size()*100.0/students.size());
+        double perPromossi =(promossi.size()*students.size()/10.0);
         return perPromossi;
 
     }
