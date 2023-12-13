@@ -16,5 +16,12 @@ public class Main {
             }
             Corso.getElencoStudenti(studenti);
 
+            Corso.removeStudent(studenti,10);
+
+            Studente studente = new Studente(29, 10);
+            Corso.addStudent(studenti, studente);
+            Corso.getElencoStudenti(studenti);
+
+
     }
 }

@@ -7,7 +7,7 @@ public class Studente {
     //Attributi
 
     private int idStudente;
-    private static int counter = 10;
+    private static int counter = 1;
     private int assenze;
     private double mediaVoti;
 
