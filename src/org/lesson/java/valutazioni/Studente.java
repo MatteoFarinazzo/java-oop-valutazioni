@@ -61,4 +61,10 @@ public class Studente {
          }
          else return true;
     }
+
+    @Override
+    public String toString() {
+        return "id:"+idStudente+ " percentuale assenze= "+ assenze+" %"+ " media voti: "+mediaVoti;
+
+    }
 }
