@@ -6,9 +6,19 @@ import java.util.ArrayList;
 
 public class Corso {
     //attributi
-    private ArrayList<Studente> students = new ArrayList<>();
 
-    private ArrayList<Studente>promossi= new ArrayList<>();
+    private String name;
+    private ArrayList<Studente> students;
+
+//    private ArrayList<Studente>promossi;
+
+    //Costruttori
+
+    public Corso(String name){
+        this.name = name;
+        this.students = new ArrayList<>();
+//        this.promossi = new ArrayList<>();
+    }
 
     //Getter Setter
 
@@ -30,27 +40,36 @@ public class Corso {
         students.add(nuovoStudente);
     }
 
-    private void getPromossiList (){
+    private ArrayList<Studente> getPromossiList (){
+        ArrayList listaStudentiPromossi = new ArrayList<>();
         for (Studente studente:students){
             if (studente.isPassed()){
-                promossi.add(studente);
+                listaStudentiPromossi.add(studente);
             }
         }
+        return listaStudentiPromossi;
     }
 
     public void getPromossiNum (){
         getPromossiList();
-        System.out.println("Gli studenti promossi sono: ");
-        for (Studente promosso : promossi){
+        for (Studente promosso : getPromossiList()){
             System.out.println(promosso);
         }
     }
 
     public double getPromossiPercentage (){
         getPromossiList();
-        double perPromossi =(promossi.size()*students.size()/10.0);
+        double perPromossi = ((double) getPromossiList().size() /students.size()*100.0);
         return perPromossi;
 
     }
 
+    @Override
+    public String toString() {
+        String stamp = "Il corso " + name + " è formato dagli studenti: ";
+        for (Studente studente: students) {
+            stamp += "\n" + "Id:"+studente.getIdStudente()+ " con una percentuale assenze del = "+ studente.getAssenze()+" %"+ " La sua media dei voti: "+studente.getMediaVoti();
+        }
+        return stamp;
+    }
 }
